@@ -1,0 +1,71 @@
+# Source organization of Niko's KosmOSS
+
+- config
+  - /spacecraft
+    - Inertia, mass, Cd, reference area
+- coordinates
+  - /coordinate_transforms
+    - EOP stuff
+    - EOP struct
+    - Interpolation between epochs
+    - ITRS Cartesian to Geodetic
+    - Convert GCRS to ITRS using IAU 2000/2006 CIO-based transformation
+  - /eop_errors
+    - IO, csv, float, http, etc.
+  - /eop_manager
+    - Loads cached data or downloads new data
+    - Interpolates data using coordinate_transforms function
+- fsm
+  - /spacecraft_states
+    - List of states (safe, detumble, nominal, maneuver prep, maneuver, emergency)
+  - /state_machines
+    - w_thresh and w_emergency
+    - evaluate if state change
+    - should apply __
+- gnc
+  - control
+    - /attitude_controllers
+      - geometric attitude controller to get torque from state (gcrs), quat, and w
+  - guidance
+    - /hohmann
+      - apsis targeting
+- integrators
+  - Uses equations of motion modules
+  - /rk4
+  - /rk45?
+- models
+  - /spacecraft
+    - mass, Cd, A_ref
+  - /state
+    - spacecraft, mass, I, rv, qw, epoch, elapsed time, fuel mass
+- numerics
+  - /quaternion
+    - scalar, vector, q2R, *, q_dot
+- physics
+  - /attitude
+    - torque, alpha, q_dot
+  - /drag
+    - drag_force, drag_moments?
+  - /dynamics
+    - EquationsOfMotion
+      - compute derivative
+  - /energy
+    - energy and angular momentum
+  - /environment
+    - altitude, density, magnetic_field, solar_flux
+  - /gravity
+    - gravitational acceleration
+  - /orbital
+    - cartesian_to_kelperian (rv_to_coes) and v.v.
+    - orbital period
+    - circular_velocity
+    - apsides
+    - is_near_apsis
+    - TA_to_E
+    - E_to_M
+    - M_to_E
+- /constants
+  - m_E, r_E, w_E
+  - WGS85_A, _F
+  - mu_0
+  - pi
