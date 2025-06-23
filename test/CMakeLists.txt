@@ -1,6 +1,16 @@
+# Same source
+file(GLOB_RECURSE SOURCE_FILES 
+    ${CMAKE_SOURCE_DIR}/src/**/*.cpp
+)
+
 # Create test executable
+file(GLOB_RECURSE TEST_FILES
+    ./**/*.cpp
+)
+
 add_executable(unit_tests
-    first_test.cpp
+    ${SOURCE_FILES}
+    ${TEST_FILES}
 )
 
 
@@ -13,7 +23,8 @@ set_target_properties(unit_tests
 # Include directories
 target_include_directories(unit_tests
     PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/test
     ${GTEST_INCLUDE_DIRS}
 )
 

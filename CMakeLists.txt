@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 # GoogleTest requires at least C++17
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
@@ -24,14 +24,18 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(eigen)
 
 # Add the executable target
-add_executable(Outset src/main.cpp)
+file(GLOB_RECURSE SOURCE_FILES
+    src/**/*.cpp
+)
+add_executable(Outset ${SOURCE_FILES})
+message(STATUS "Source files: ${SOURCE_FILES}")
 
 # Include directories for Outset
 target_include_directories(Outset PRIVATE 
-    ${CMAKE_SOURCE_DIR}/include
-    # ${ERFA_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}/lib/eigen
+    ${CMAKE_SOURCE_DIR}/src
 )
+
+
 
 # Link libraries for Earthbound
 target_link_libraries(Outset PRIVATE
