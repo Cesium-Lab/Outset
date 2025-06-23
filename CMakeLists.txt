@@ -41,7 +41,7 @@ target_include_directories(Outset PRIVATE
 
 # Link libraries for Earthbound
 target_link_libraries(Outset PRIVATE
-    GTest::gtest
+    # GTest::gtest
     Eigen3::Eigen
 )
 
