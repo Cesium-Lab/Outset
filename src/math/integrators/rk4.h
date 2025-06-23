@@ -3,7 +3,7 @@
 
 #include <Eigen/Dense>
 
-#include "math/utilities.h"
+#include "math/rotation/utilities.h"
 
 namespace Cesium::Math {
 

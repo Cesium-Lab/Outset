@@ -1,5 +1,5 @@
 #include "EquationsOfMotion.h"
-#include "math/utilities.h"
+#include "math/rotation/utilities.h"
 
 
 using namespace Eigen;

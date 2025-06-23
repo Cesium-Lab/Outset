@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "math/utilities.h"
+#include "math/rotation/utilities.h"
 #include "test_helpers.h"
 
 
