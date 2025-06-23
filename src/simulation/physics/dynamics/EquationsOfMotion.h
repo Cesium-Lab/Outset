@@ -60,7 +60,7 @@ struct RigidBody {
 
     StateDerivative derivative(Eigen::Vector3d force, Eigen::Vector3d torque);
 
-    Eigen::VectorXd compute_derivative(const Eigen::VectorXd& state) const;
+    Eigen::VectorXd compute_derivative(double t, const Eigen::VectorXd& state) const;
 };
 
 } // namespace Cesium::Sim::Physics

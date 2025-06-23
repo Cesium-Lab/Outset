@@ -1,5 +1,4 @@
 #include <iostream>
-#include <gtest/gtest.h>
 #include <Eigen/Dense>
 
 #include "simulation/physics/dynamics/EquationsOfMotion.h"

@@ -13,13 +13,13 @@ StateDerivative RigidBody::derivative(Vector3d force, Vector3d torque)
     this->torque = torque;
 
     StateDerivative state_dot = StateDerivative::from_vec(
-        compute_derivative(this->state.to_vec())
+        compute_derivative(0.0, this->state.to_vec())
     );
     
     return state_dot;
 }
 
-VectorXd RigidBody::compute_derivative(const VectorXd &state) const
+VectorXd RigidBody::compute_derivative(double t, const VectorXd &state) const
 {
     Vector3d r = state.segment<3>(0);
     Vector3d v = state.segment<3>(3);
