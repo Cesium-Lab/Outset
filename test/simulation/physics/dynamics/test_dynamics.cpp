@@ -4,9 +4,6 @@
 #include "simulation/physics/dynamics/EquationsOfMotion.h"
 #include "test_helpers.h"
 
-#include <iostream> // DELETE BEFORE COMMITTING
-using namespace std; // DELETE BEFORE COMMITTING
-
 using namespace Eigen;
 using namespace Cesium::Sim::Physics;
 
