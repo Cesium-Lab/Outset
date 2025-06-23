@@ -7,12 +7,10 @@
 
 namespace Cesium::Math {
 
-inline Eigen::VectorXd rk4(double dt, Eigen::VectorXd y) {
-    // std::cout << "YAY"
-}
+// Derivative function:
+//     f(t, y) --> dy
+Eigen::VectorXd rk4_step(double dt, double t, Eigen::VectorXd state, Eigen::VectorXd (*state_dot)(double, Eigen::VectorXd));
 
 } // namespace Cesium::Math
-
-
 
 #endif

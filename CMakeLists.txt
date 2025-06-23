@@ -25,8 +25,10 @@ FetchContent_MakeAvailable(eigen)
 
 # Add the executable target
 file(GLOB_RECURSE SOURCE_FILES
+    src/*.cpp
     src/**/*.cpp
 )
+# list(APPEND SOURCE_FILES src/main.cpp)
 add_executable(Outset ${SOURCE_FILES})
 message(STATUS "Source files: ${SOURCE_FILES}")
 
@@ -39,7 +41,7 @@ target_include_directories(Outset PRIVATE
 
 # Link libraries for Earthbound
 target_link_libraries(Outset PRIVATE
-    GTest::gtest_main
+    GTest::gtest
     Eigen3::Eigen
 )
 
