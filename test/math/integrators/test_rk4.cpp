@@ -12,7 +12,7 @@ using namespace Cesium::Math;
 //                   Constant                   //
 //////////////////////////////////////////////////
 
-VectorXd constant_deriv(double t, VectorXd x) {
+VectorXd constant_deriv(double t, const VectorXd& x) {
     return VectorXd::Zero(x.size());
 }
 
@@ -35,7 +35,7 @@ TEST(RK4Test, Constant) {
 //                Constant Slope                //
 //////////////////////////////////////////////////
 
-VectorXd slope_2(double t, VectorXd x) {
+VectorXd slope_2(double t, const VectorXd& x) {
     VectorXd out(1);
     out << 2.0;
     return out;
@@ -58,7 +58,7 @@ TEST(RK4Test, ConstSlope) {
 //             Exponential Decay                //
 //////////////////////////////////////////////////
 
-VectorXd exponential_decay_deriv(double t, VectorXd x) {
+VectorXd exponential_decay_deriv(double t, const VectorXd& x) {
     return -x;
 }
 
@@ -96,7 +96,7 @@ TEST(RK4Test, ExponentialMultiStep) {
 //                     Sine!                    //
 //////////////////////////////////////////////////
 
-VectorXd sine_deriv(double t, VectorXd x) {
+VectorXd sine_deriv(double t, const VectorXd& x) {
     VectorXd rslt(1);
     rslt << cos(t);
     return rslt;
@@ -152,7 +152,7 @@ TEST(RK4Test, SineMultiStep_15_second) {
 //////////////////////////////////////////////////
 
 
-VectorXd logistic_deriv_3(double t, VectorXd x) {
+VectorXd logistic_deriv_3(double t, const VectorXd& x) {
     double r = 1.0;
     double K = 10.0;
     VectorXd dxdt(3);

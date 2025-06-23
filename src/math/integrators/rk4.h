@@ -9,7 +9,7 @@ namespace Cesium::Math {
 
 // Derivative function:
 //     f(t, y) --> dy
-Eigen::VectorXd rk4_step(double dt, double t, Eigen::VectorXd state, Eigen::VectorXd (*state_dot)(double, Eigen::VectorXd));
+Eigen::VectorXd rk4_step(double dt, double t, const Eigen::VectorXd& state, Eigen::VectorXd (*state_dot)(double, const Eigen::VectorXd&));
 
 } // namespace Cesium::Math
 

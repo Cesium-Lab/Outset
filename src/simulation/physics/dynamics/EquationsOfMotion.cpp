@@ -6,7 +6,7 @@ using namespace Eigen;
 
 namespace Cesium::Sim::Physics {
 
-StateDerivative RigidBody::derivative(Vector3d force, Vector3d torque)
+StateDerivative RigidBody::derivative(const Vector3d& force, const Vector3d& torque)
 {
 
     this->force = force;

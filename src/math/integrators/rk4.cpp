@@ -6,7 +6,7 @@ using namespace Cesium::Sim::Physics;
 
 namespace Cesium::Math {
 
-VectorXd rk4_step(double dt, double t, VectorXd state, VectorXd (*state_dot)(double, VectorXd)) {
+VectorXd rk4_step(double dt, double t, const VectorXd& state, VectorXd (*state_dot)(double, const VectorXd&)) {
     VectorXd k1 = state_dot(t, state);
     VectorXd k2 = state_dot(t + 0.5*dt, state + 0.5*dt * k1);
     VectorXd k3 = state_dot(t + 0.5*dt, state + 0.5*dt * k2);

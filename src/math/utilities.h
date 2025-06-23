@@ -5,7 +5,7 @@
 
 namespace Cesium::Math {
 
-inline Eigen::Quaterniond hamilton_product(Eigen::Quaterniond q, Eigen::Vector3d w) {
+inline Eigen::Quaterniond hamilton_product(const Eigen::Quaterniond& q, const Eigen::Vector3d& w) {
     double wx = w(0);
     double wy = w(1);
     double wz = w(2);

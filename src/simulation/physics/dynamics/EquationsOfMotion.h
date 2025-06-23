@@ -33,7 +33,7 @@ struct StateDerivative {
     Eigen::Quaterniond dqdt{};
     Eigen::Vector3d dwdt{};
 
-    static StateDerivative from_vec(Eigen::VectorXd dot) {
+    static StateDerivative from_vec(const Eigen::VectorXd& dot) {
         StateDerivative rslt;
         rslt.drdt = dot.segment<3>(0);
         rslt.dvdt = dot.segment<3>(3);
@@ -58,7 +58,7 @@ struct RigidBody {
     
     double epoch_s;
 
-    StateDerivative derivative(Eigen::Vector3d force, Eigen::Vector3d torque);
+    StateDerivative derivative(const Eigen::Vector3d& force, const Eigen::Vector3d& torque);
 
     Eigen::VectorXd compute_derivative(double t, const Eigen::VectorXd& state) const;
 };
